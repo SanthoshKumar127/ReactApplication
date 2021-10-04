@@ -1,30 +1,53 @@
-import EducationalDetails from "./EducationalDetails";
+import Address from "./Address";
+import { Button, Container, TextField } from "@material-ui/core";
 
-function PersonalDetails() {
+const PersonalDetails = ({ formData, setForm, navigation }) => {
+  const { firstName, lastName, email } = formData;
+
   return (
-    <div className="Personal">
-      <form>
-        <div>
-          <label>First Name</label> : <input type="text" required></input>
-        </div>
-        <div>
-          <label>Last Name</label> : <input type="text"></input>
-        </div>
-        <div>
-          <label>Gender</label>: <input type="text"></input>
-        </div>
-        <div>
-          <label>Experience</label> : <input type="text"></input>
-        </div>
-        <div>
-          <button type="submit" value="submit" >
-            Next
-          </button>
-          <EducationalDetails />
-        </div>
-      </form>
-    </div>
+    <Container maxWidth="xs">
+      <h3> Personal Details </h3>
+      <TextField
+        label="First Name"
+        name="firstName"
+        value={firstName}
+        onChange={setForm}
+        margin="normal"
+        variant="outlined"
+        autoComplete="Off"
+        fullWidth
+      />
+      <TextField
+        label="Last Name"
+        name="lastName"
+        value={lastName}
+        onChange={setForm}
+        margin="normal"
+        variant="outlined"
+        autoComplete="off"
+        fullWidth
+      />
+      <TextField
+        label="Email"
+        name="email"
+        value={email}
+        onChange={setForm}
+        margin="normal"
+        variant="outlined"
+        autoComplete="off"
+        fullWidth
+      />
+      <Button
+        variant="contained"
+        fullWidth
+        color="primary"
+        style={{ marginTop: "1rem" }}
+        onClick={() => navigation.next()}
+      >
+        Next
+      </Button>
+    </Container>
   );
-}
+};
 
 export default PersonalDetails;
