@@ -1,31 +1,24 @@
 import React from "react";
-// import { useForm, useStep } from "react-hooks-helper";
-
-type PersonDetails = {
-  firstName: string;
-  lastName: string;
-  email: string;
-};
+import ProfessionalDetails from "./Component/ProfessionalDetails";
+import PersonalDetails from "./Component/PersonalDetails";
+import { Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { Router } from "@material-ui/icons";
 
 const MultiStepForm = () => {
   return (
-    <form>
-      <div className="field">
-        <label htmlFor="firstName">First Name</label>
-        <input type="text" id="name" name="name" />
+    <Router>
+      <div className="MultiStep">
+        <Switch>
+          <Route path="/" exact component={PersonalDetails}></Route>
+          <Route
+            path="/ProfessionalDetails"
+            exact
+            component={ProfessionalDetails}
+          ></Route>
+        </Switch>
       </div>
-
-      <div className="field">
-        <label htmlFor="lastName">Last Name</label>
-        <input type="number" id="score" name="score" />
-      </div>
-
-      <div className="field">
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
-      </div>
-      <button type="submit">Save</button>
-    </form>
+    </Router>
   );
 };
 

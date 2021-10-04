@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import ProfessionalDetails from "./ProfessionalDetails";
 
 type PersonalDetailsProps = {
   firstName: string;
@@ -25,7 +26,7 @@ const PersonalDetails: React.FC = () => {
         <input type="email" name="name" />
       </p>
 
-      <input type="submit" value="Next" />
+      <input type="submit" value="Next"/>
     </form>
   );
 };
