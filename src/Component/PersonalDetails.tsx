@@ -16,7 +16,6 @@ const PersonalDetails: React.FC = () => {
 
   const onSubmit: SubmitHandler<PersonalDetailsProps> = (data) => {
     setPersonal(data);
-    console.log("data: from profile form", data);
     history.push("/professional");
   };
   return (
@@ -25,28 +24,30 @@ const PersonalDetails: React.FC = () => {
       <p>
         <label htmlFor="firstName">First Name </label>
         <input
+          {...register("firstName")}
           type="text"
           name="firstName"
           defaultValue={personal.firstName}
-          {...register}
+          required
         />
       </p>
       <p>
         <label htmlFor="lastName">Last Name </label>
         <input
+          {...register("lastName")}
           type="text"
           name="lastName"
           defaultValue={personal.lastName}
-          {...register}
         />
       </p>
       <p>
         <label htmlFor="email"> Email </label>
         <input
+          {...register("email")}
           type="email"
-          name="name"
+          name="email"
           defaultValue={personal.email}
-          {...register}
+          required
         />
       </p>
       <input type="submit" value="Next" />
