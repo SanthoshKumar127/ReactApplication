@@ -17,7 +17,6 @@ const Address: React.FC = () => {
 
   const onSubmit: SubmitHandler<AddressProps> = (data) => {
     setAddress(data);
-    console.log("data: from profile form", data);
     history.push("/review");
   };
   return (
@@ -25,22 +24,47 @@ const Address: React.FC = () => {
       <h2> Fill your Address </h2>
       <p>
         <label htmlFor="address"> Address </label>
-        <input type="text" name="address" defaultValue={address.address} {...register}/>
+        <input
+          {...register("address")}
+          type="text"
+          name="address"
+          defaultValue={address.address}
+          required
+        />
       </p>
       <p>
         <label htmlFor="city">City </label>
-        <input type="text" name="city" defaultValue={address.city} {...register}/>
+        <input
+          {...register("city")}
+          type="text"
+          name="city"
+          defaultValue={address.city}
+          required
+        />
       </p>
       <p>
         <label htmlFor="state"> State </label>
-        <input type="text" name="state" defaultValue={address.state} {...register}/>
+        <input
+          {...register("state")}
+          type="text"
+          name="state"
+          defaultValue={address.state}
+          required
+        />
       </p>
       <p>
         <label htmlFor="zip"> Zip Code </label>
-        <input type="number" name="zip" defaultValue={address.zip} {...register}/>
+        <input
+          {...register("zip")}
+          type="number"
+          name="zip"
+          defaultValue={address.zip}
+          required
+        />
       </p>
 
       <input type="submit" value="Save and Submit" />
+      <button onClick={history.goBack}> Back </button>
     </form>
   );
 };

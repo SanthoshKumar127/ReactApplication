@@ -6,6 +6,7 @@ import { Route } from "react-router-dom";
 import Address from "./Address";
 import Review from "./Review";
 import MultiStepFormProvider from "./MultiStepFormContext";
+import Success from "./Success";
 
 function MultiStepForm() {
   return (
@@ -13,7 +14,6 @@ function MultiStepForm() {
       <div className="MultiStep">
         <Switch>
           <Route path="/" exact component={PersonalDetails}>
-            {" "}
             <PersonalDetails />
           </Route>
           <Route path="/professional" component={ProfessionalDetails}>
@@ -22,8 +22,11 @@ function MultiStepForm() {
           <Route path="/address" exact component={Address}>
             <Address />
           </Route>
-          <Route path = "/review" component={Review}>
+          <Route path="/review" component={Review}>
             <Review />
+          </Route>
+          <Route path="/success" component={Success}>
+            <Success />
           </Route>
         </Switch>
       </div>

@@ -1,12 +1,15 @@
 import React, { FormEvent } from "react";
+import { useHistory } from "react-router";
 import { useMultiStepForm } from "./MultiStepFormContext";
 
 function Review() {
   const { personal, professional, address } = useMultiStepForm();
-
+  const history = useHistory();
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    
+    e.preventDefault();
+    history.push("/success");
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <h2>Review all your info</h2>
@@ -41,7 +44,11 @@ function Review() {
         <strong>Zip Code</strong>: {address.zip}
       </p>
 
-      <input type="submit" value="Submit All Info" />
+      <input
+        type="submit"
+        value="Submit All Info"
+        onClick={history.goForward}
+      />
     </form>
   );
 }

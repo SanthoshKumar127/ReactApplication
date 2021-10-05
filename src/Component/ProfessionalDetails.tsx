@@ -16,7 +16,6 @@ const ProfessionalDetails: React.FC = () => {
 
   const onSubmit: SubmitHandler<ProfessionalDetailsProps> = (data) => {
     setProfessional(data);
-    console.log("data: from profile form", data);
     history.push("/address");
   };
   return (
@@ -25,32 +24,34 @@ const ProfessionalDetails: React.FC = () => {
       <p>
         <label htmlFor="firstName">Company Name </label>
         <input
+          {...register("company")}
           type="text"
           name="company"
           defaultValue={professional.company}
-          {...register}
+          required
         />
       </p>
       <p>
         <label htmlFor="lastName">Designation </label>
         <input
+          {...register("designation")}
           type="text"
           name="designation"
           defaultValue={professional.designation}
-          {...register}
         />
       </p>
       <p>
         <label htmlFor="number"> Year Of Joining </label>
         <input
+          {...register("yearOfJoining")}
           type="number"
           name="yearOfJoining"
           defaultValue={professional.yearOfJoining}
-          {...register}
         />
       </p>
 
       <input type="submit" value="Next" />
+      <button onClick={history.goBack}> Back </button>
     </form>
   );
 };
