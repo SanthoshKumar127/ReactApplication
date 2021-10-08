@@ -14,10 +14,8 @@ function Review() {
     <form onSubmit={handleSubmit}>
       <h2>Review all your info</h2>
       <p>
-        <strong>First Name</strong>: {personal.firstName}
-      </p>
-      <p>
-        <strong>Last Name</strong> : {personal.lastName}
+        <strong>Full Name</strong>:{" "}
+        {personal.firstName + " " + personal.lastName}
       </p>
       <p>
         <strong>Email</strong>: {personal.email}

@@ -1,3 +1,4 @@
+import { TextField } from "@material-ui/core";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useHistory } from "react-router";
@@ -24,7 +25,7 @@ const Address: React.FC = () => {
       <h2> Fill your Address </h2>
       <p>
         <label htmlFor="address"> Address </label>
-        <input
+        <TextField
           {...register("address")}
           type="text"
           name="address"
@@ -34,7 +35,7 @@ const Address: React.FC = () => {
       </p>
       <p>
         <label htmlFor="city">City </label>
-        <input
+        <TextField
           {...register("city")}
           type="text"
           name="city"
@@ -44,7 +45,7 @@ const Address: React.FC = () => {
       </p>
       <p>
         <label htmlFor="state"> State </label>
-        <input
+        <TextField
           {...register("state")}
           type="text"
           name="state"
@@ -54,7 +55,7 @@ const Address: React.FC = () => {
       </p>
       <p>
         <label htmlFor="zip"> Zip Code </label>
-        <input
+        <TextField
           {...register("zip")}
           type="number"
           name="zip"

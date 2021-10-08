@@ -1,3 +1,4 @@
+import { Button, TextField } from "@material-ui/core";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useHistory } from "react-router-dom";
@@ -19,11 +20,11 @@ const PersonalDetails: React.FC = () => {
     history.push("/professional");
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <h2> Fill your Personal Details </h2>
       <p>
         <label htmlFor="firstName">First Name </label>
-        <input
+        <TextField
           {...register("firstName")}
           type="text"
           name="firstName"
@@ -31,25 +32,26 @@ const PersonalDetails: React.FC = () => {
           required
         />
       </p>
-      <p>
+      <nav>
         <label htmlFor="lastName">Last Name </label>
-        <input
+        <TextField
           {...register("lastName")}
           type="text"
           name="lastName"
           defaultValue={personal.lastName}
         />
-      </p>
-      <p>
+      </nav>
+      <nav>
         <label htmlFor="email"> Email </label>
-        <input
+        <TextField
           {...register("email")}
           type="email"
           name="email"
           defaultValue={personal.email}
           required
         />
-      </p>
+      </nav>
+      {/* <Button variant="contained" value = "next"> Next </Button> */}
       <input type="submit" value="Next" />
     </form>
   );

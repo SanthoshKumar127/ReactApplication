@@ -1,3 +1,4 @@
+import { TextField } from "@material-ui/core";
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useHistory } from "react-router-dom";
@@ -23,7 +24,7 @@ const ProfessionalDetails: React.FC = () => {
       <h2> Fill your Professional Details </h2>
       <p>
         <label htmlFor="firstName">Company Name </label>
-        <input
+        <TextField
           {...register("company")}
           type="text"
           name="company"
@@ -33,16 +34,17 @@ const ProfessionalDetails: React.FC = () => {
       </p>
       <p>
         <label htmlFor="lastName">Designation </label>
-        <input
+        <TextField
           {...register("designation")}
           type="text"
           name="designation"
           defaultValue={professional.designation}
+          required
         />
       </p>
       <p>
         <label htmlFor="number"> Year Of Joining </label>
-        <input
+        <TextField
           {...register("yearOfJoining")}
           type="number"
           name="yearOfJoining"
